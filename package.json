@@ -16,14 +16,14 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.bryannasFavoritePet"
+        "onCommand:extension.bryannasPet"
     ],
     "main": "./extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "extension.bryannasFavoritePet",
-                "title": "Create EF Core Login & Registration Form for Me!"
+                "command": "extension.bryannasPet",
+                "title": "Bryanna loves this Cody-proof pet!!"
             }
         ]
     },
