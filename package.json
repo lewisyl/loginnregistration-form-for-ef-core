@@ -2,8 +2,13 @@
     "name": "loginnregistration-form-for-ef-core",
     "displayName": "LoginNRegistration Form for EF Core",
     "description": "Generates a simple login and registration page with db connection and user model for Entity Framework Core",
-    "version": "1.0.0",
+	"version": "1.0.0",
     "publisher": "LewisYLiu",
+	"icon": "icon.png",
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/lewisyl/loginnregistration-form-for-ef-core"
+    },
     "engines": {
         "vscode": "^1.39.0"
     },
