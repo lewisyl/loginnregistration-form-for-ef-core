@@ -16,14 +16,14 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.BryannasFavoritePet"
+        "onCommand:extension.bryannasFavoritePet"
     ],
     "main": "./extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "extension.ThisPetIsCodyProof",
-                "title": "Create a simple but Cody-Proof ASP Login&Registration Form"
+                "command": "extension.bryannasFavoritePet",
+                "title": "Create EF Core Login & Registration Form for Me!"
             }
         ]
     },

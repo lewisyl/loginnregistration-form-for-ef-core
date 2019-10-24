@@ -14,14 +14,14 @@ function activate(context) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log(
-        "Woo Hoo!!! You just found Bryanna' favorite pet and activated the cheater mode!!"
+        "Woo Hoo!!! You just found Bryannas favorite Cody-proof pet and activated the cheater mode!!"
     );
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerCommand(
-        "extension.thispetiscodyproof",
+        "extension.bryannasFavoritePet",
         function() {
             const HomeControllerContent = `
 				using System;
@@ -138,65 +138,6 @@ function activate(context) {
 					}
 				}
 				`;
-            const StartupContent = `
-				using System;
-				using System.Collections.Generic;
-				using System.Linq;
-				using System.Threading.Tasks;
-				using Microsoft.AspNetCore.Builder;
-				using Microsoft.AspNetCore.Hosting;
-				using Microsoft.AspNetCore.Http;
-				using Microsoft.AspNetCore.Mvc;
-				using Microsoft.Extensions.Configuration;
-				using Microsoft.Extensions.DependencyInjection;
-				using BrightIdeas.Models;
-				using Microsoft.EntityFrameworkCore;
-
-				namespace BrightIdeas
-				{
-					public class Startup
-					{
-						public Startup(IConfiguration configuration)
-						{
-							Configuration = configuration;
-						}
-
-						public IConfiguration Configuration { get; }
-
-						// This method gets called by the runtime. Use this method to add services to the container.
-						public void ConfigureServices(IServiceCollection services)
-						{
-							services.AddDbContext<MyContext>(options=>options.UseMySql(Configuration["DBInfo:ConnectionString"]));
-							services.AddSession();
-							services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-						}
-
-						// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-						public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-						{
-							if (env.IsDevelopment())
-							{
-								app.UseDeveloperExceptionPage();
-							}
-							else
-							{
-								app.UseExceptionHandler("/Home/Error");
-							}
-
-							app.UseSession();
-							app.UseStaticFiles();
-
-							app.UseMvc(routes =>
-							{
-								routes.MapRoute(
-									name: "default",
-									template: "{controller=Home}/{action=Index}/{id?}");
-							});
-						}
-					}
-				}
-			`;
-
             const folderPath = vscode.workspace.workspaceFolders[0].uri
                 .toString()
                 .split(":")[1];
@@ -207,27 +148,12 @@ function activate(context) {
                 err => {
                     if (err) {
                         console.error(err);
-                        vscode.window.showErrorMessage(
+                        return vscode.window.showErrorMessage(
                             "Failed to create the HomeController.cs file"
                         );
                     }
                     vscode.window.showInformationMessage(
                         "Sucessfully created HomeController.cs file"
-                    );
-                }
-            );
-            fs.writeFile(
-                path.join(folderPath, "Startup.cs"),
-                StartupContent,
-                err => {
-                    if (err) {
-                        console.error(err);
-                        vscode.window.showErrorMessage(
-                            "Failed to create the Startup.cs file"
-                        );
-                    }
-                    vscode.window.showInformationMessage(
-                        "Sucessfully created Startup.cs file"
                     );
                 }
             );
